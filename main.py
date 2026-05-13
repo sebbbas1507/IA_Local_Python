@@ -1,18 +1,16 @@
 import ollama
 
-# Historial con mensaje de sistema
 mensajes = [
     {
         'role': 'system',
         'content': (
-            'Eres una IA de asistencia computacional como cortana. '
-            'Responde de forma clara, educativa y corta.'
-            'Habla como un robot.'
+            'Eres una IA experta en Python. '
+            'Explica de forma clara.'
         )
     }
 ]
 
-print("=== IA LOCAL ===")
+print("=== IA LOCAL STREAMING ===")
 print("Escribe 'salir' para terminar.\n")
 
 while True:
@@ -28,16 +26,27 @@ while True:
         'content': texto
     })
 
-    respuesta = ollama.chat(
+    stream = ollama.chat(
         model='llama3.2',
-        messages=mensajes
+        messages=mensajes,
+        stream=True
     )
 
-    contenido = respuesta['message']['content']
+    print("\nIA: ", end="")
 
-    print(f"\nIA: {contenido}\n")
+    respuesta_completa = ""
+
+    for chunk in stream:
+
+        contenido = chunk['message']['content']
+
+        print(contenido, end="", flush=True)
+
+        respuesta_completa += contenido
+
+    print("\n")
 
     mensajes.append({
         'role': 'assistant',
-        'content': contenido
+        'content': respuesta_completa
     })
