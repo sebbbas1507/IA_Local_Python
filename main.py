@@ -1,12 +1,13 @@
 import ollama
 import json
 import os
+from datetime import datetime
 
 ARCHIVO_MEMORIA = "memoria.json"
 
-# =====================================
-# FUNCIONES
-# =====================================
+# =========================================
+# FUNCIONES DE MEMORIA
+# =========================================
 
 def guardar_memoria():
 
@@ -36,30 +37,44 @@ def cargar_memoria():
         }
     ]
 
-# =====================================
+# =========================================
+# HERRAMIENTAS
+# =========================================
+
+def obtener_hora():
+
+    ahora = datetime.now()
+
+    return ahora.strftime("%H:%M:%S")
+
+def obtener_fecha():
+
+    hoy = datetime.now()
+
+    return hoy.strftime("%d/%m/%Y")
+
+# =========================================
 # CARGAR MEMORIA
-# =====================================
+# =========================================
 
 mensajes = cargar_memoria()
 
-print("=== IA LOCAL AVANZADA ===")
+print("=== IA LOCAL CON HERRAMIENTAS ===")
 print("Comandos:")
 print("/salir")
-print("/reset")
-print("/guardar")
-print("/historial\n")
+print("/reset\n")
 
-# =====================================
+# =========================================
 # CHAT PRINCIPAL
-# =====================================
+# =========================================
 
 while True:
 
     texto = input("Tú: ")
 
-    # =====================================
+    # =========================================
     # COMANDO: SALIR
-    # =====================================
+    # =========================================
 
     if texto == "/salir":
 
@@ -70,9 +85,9 @@ while True:
 
         break
 
-    # =====================================
+    # =========================================
     # COMANDO: RESET
-    # =====================================
+    # =========================================
 
     if texto == "/reset":
 
@@ -92,31 +107,31 @@ while True:
 
         continue
 
-    # =====================================
-    # COMANDO: GUARDAR
-    # =====================================
+    # =========================================
+    # TOOL CALLING SIMPLE
+    # =========================================
 
-    if texto == "/guardar":
+    texto_minuscula = texto.lower()
 
-        guardar_memoria()
+    if "hora" in texto_minuscula:
 
-        print("Memoria guardada.\n")
+        hora = obtener_hora()
 
-        continue
-
-    # =====================================
-    # COMANDO: HISTORIAL
-    # =====================================
-
-    if texto == "/historial":
-
-        print(f"\nMensajes guardados: {len(mensajes)}\n")
+        print(f"\n🕒 Hora actual: {hora}\n")
 
         continue
 
-    # =====================================
-    # MENSAJE NORMAL
-    # =====================================
+    if "fecha" in texto_minuscula:
+
+        fecha = obtener_fecha()
+
+        print(f"\n📅 Fecha actual: {fecha}\n")
+
+        continue
+
+    # =========================================
+    # IA NORMAL
+    # =========================================
 
     mensajes.append({
         'role': 'user',
