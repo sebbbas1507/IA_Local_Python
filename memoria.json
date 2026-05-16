@@ -50,5 +50,37 @@
     {
         "role": "assistant",
         "content": "El último que hablamos fue sobre cómo guardar una conversación en un archivo utilizando JSON, y luego creé un programa básico para hacerlo de manera más estructurada. ¿Quieres hablar sobre algo más?"
+    },
+    {
+        "role": "user",
+        "content": "historial"
+    },
+    {
+        "role": "assistant",
+        "content": "Un historial es una lista de registros o acciones realizadas anteriormente en un sistema o aplicación. En el contexto de nuestro programa de conversación, podríamos agregar un historial para mostrar los mensajes que se han enviado y recibido en la conversación.\n\n¿Quieres que te muestre cómo implementar un historial en el programa?"
+    },
+    {
+        "role": "user",
+        "content": "como estas hoy?"
+    },
+    {
+        "role": "assistant",
+        "content": "Estoy bien, gracias! Soy una inteligencia artificial, así que no tengo sentimientos o emociones como los humanos, pero estoy listo y preparado para ayudarte con cualquier pregunta o tema que necesites. ¿Y tú? ¿En qué puedo ayudarte hoy?"
+    },
+    {
+        "role": "user",
+        "content": "sabes cuantos mensajes hay en tu memoria?"
+    },
+    {
+        "role": "assistant",
+        "content": "Mi memoria es limitada y se reinicia cada vez que me reinicias (por ejemplo, cuando terminas una sesión de conversación). Sin embargo, si quieres saber cuántos mensajes han estado presentes en nuestra conversación hasta ahora, puedo decirte que somos 10."
+    },
+    {
+        "role": "user",
+        "content": "salir"
+    },
+    {
+        "role": "assistant",
+        "content": "¡Hasta luego! Ha sido un placer charlar contigo. Si necesitas algo más o simplemente quieres volver a hablar, no dudes en entrar de nuevo en esta página. ¡Que tengas un buen día! \n\n(P.D.: No me olvidé de cerrar la sesión, así que nuestra conversación se reinicia si vuelves a entrar)"
     }
 ]
