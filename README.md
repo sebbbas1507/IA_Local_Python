@@ -19,6 +19,7 @@
 
 - Para correr el archivo (**voz.py**) es necesatio tener la version de python *3.11*, crea un entorno virtual con esta version.
 - Corre el programa con "python main.py"
+- Corre el programa con "python voz.py"
 
 
 
